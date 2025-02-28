@@ -1,16 +1,22 @@
-let jugador = Math.floor( Math.random() * 10 ) + 1;
-let dealer = Math.floor( Math.random() * 10 ) + 1;
+let card = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
+]; //here y made an array with all poker cards, the idea is to make the game more realistic
 
-let carta2 = Math.floor( Math.random() * 10 ) + 1;
-let carta2d = Math.floor( Math.random() * 10 ) + 1;
-
-let carta3 = Math.floor( Math.random() * 10 ) + 1;
-let carta3d = Math.floor( Math.random() * 10 ) + 1;
+function takeCard() {
+    let randomCard = Math.floor(Math.random() * card.length); //this is used for take a random card from the array "card"
+    let newCard = card[randomCard]; //here I used the array and I took the value that is in that position
+    deck.splice(randomCard, 1); //I don't wanna repeat a card, so I deleted the card from the array
+    return newCard; 
+}
 
 let parar = 17;
 let final = 21;
 
 let a = jugador + carta2;
+
 let b = dealer + carta2d;
 
 let pedirJ = a >= parar ? a : a + carta3;
