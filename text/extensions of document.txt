@@ -1,0 +1,52 @@
+In the JS we can use document.getElementById("example"), but how many things we can put to exted this?
+
+Here I, Santiago Leyton, created a list to know a little more about this
+
+- Content Modification
+    * element.innerHTML → Sets or gets the HTML inside the element.
+    * element.textContent → Sets or gets the text content (ignores HTML).
+    * element.innerText → Similar to textContent, but respects CSS styles.
+
+- Style Modification
+    * element.style.property → Changes a specific CSS property.
+    * element.classList.add("class") → Adds a CSS class.
+    * element.classList.remove("class") → Removes a CSS class.
+    * element.classList.toggle("class") → Adds the class if missing, removes it if present.
+    * element.classList.contains("class") → Checks if the element has a specific class.
+
+- Attribute Modification
+    * element.setAttribute("attribute", "value") → Sets an attribute.
+    * element.getAttribute("attribute") → Gets the value of an attribute.
+    * element.removeAttribute("attribute") → Removes an attribute.
+    * element.hasAttribute("attribute") → Checks if an attribute exists.
+
+- Adding or Removing Elements
+    * element.appendChild(newElement) → Adds a child element inside.
+    * element.removeChild(childElement) → Removes a child element.
+    * element.insertBefore(newElement, referenceElement) → Inserts an element before another.
+    * element.replaceChild(newElement, oldElement) → Replaces a child element.
+
+- Event Handling
+    * element.addEventListener("event", function) → Attaches an event listener.
+    * element.removeEventListener("event", function) → Removes an event listener.
+
+- Dimensions and Positioning
+    * element.clientWidth / element.clientHeight → Gets visible content width/height.
+    * element.offsetWidth / element.offsetHeight → Gets total width/height including borders.
+    * element.scrollWidth / element.scrollHeight → Gets total content size with scroll.
+    * element.getBoundingClientRect() → Gets exact position and dimensions.
+
+- Form & Input Handling
+    * element.value → Gets or sets the value of an input or textarea.
+    * element.checked → Checks if a checkbox or radio input is selected.
+    * element.disabled → Enables or disables an input or button.
+
+- Visibility Control
+    * element.hidden = true → Hides the element.
+    * element.style.display = "none" → Hides the element completely.
+    * element.style.visibility = "hidden" → Hides the element but keeps space occupied.
+
+- Other Useful Methods
+    * element.focus() → Focuses on an input field.
+    * element.blur() → Removes focus from an input field.
+    * element.scrollIntoView() → Scrolls to make the element visible.

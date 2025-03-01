@@ -1,0 +1,4 @@
+things to add
+    1. buttons to hit or stand
+    2. split option when the player has the same cards at the beginning of the game
+    3. add bets

@@ -1,100 +1,48 @@
-let card = [
+let stop = 17;
+let final = 21;
+let cardsP = [ ];
+let cardsD = [ ]; //those arrays are empty because here we will add the player and delaer cards
+let cards = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10
-]; //here y made an array with all poker cards, the idea is to make the game more realistic
+]; //here I made an array with all poker cards, the idea is to make the game more realistic
 
-function takeCard() {
-    let randomCard = Math.floor(Math.random() * card.length); //this is used for take a random card from the array "card"
-    let newCard = card[randomCard]; //here I used the array and I took the value that is in that position
-    deck.splice(randomCard, 1); //I don't wanna repeat a card, so I deleted the card from the array
+function card() {
+    let randomCard = Math.floor(Math.random() * cards.length); //this is used for take a random card from the array "card"
+    let newCard = cards[randomCard]; //here I used the array and I took the value that is in that position
+    cards.splice(randomCard, 1); //I don't wanna repeat a card, so I deleted the card from the array
     return newCard; 
-}
+}; 
 
-let parar = 17;
-let final = 21;
+function showCards(guest, kindCards) {
+    document.getElementById(guest).innerHTML = kindCards.join(", ");
+}; //here we made a function to show the cards of the player or dealer and avoid write the same code a lot of times
 
-let a = jugador + carta2;
+function start() {
+    cardsP.push(card(), card())
+    cardsD.push(card(), card())
+    //here the dealer and the player will have two cards to start the game
 
-let b = dealer + carta2d;
+    document.getElementById("hitBtn").classList.remove("hidden-f");
+    document.getElementById("standBtn").classList.remove("hidden-f");
+    document.getElementById("hitBtn").classList.add("show-s");
+    document.getElementById("standBtn").classList.add("show-s");
+    document.getElementById("startBtn").classList.add("hidden-f");
+    //here the code will hide the start button and show hit and stand buttons
 
-let pedirJ = a >= parar ? a : a + carta3;
-let pedirD = b >= parar ? b : b + carta3d;
-
-let resultadoJ;
-let resultadoD;
-
-if ( pedirJ === final ) {
-    resultadoJ = "¡BLACKJACK!";
-} else if ( pedirJ > final ) {
-    resultadoJ = pedirJ;
-} else {
-    resultadoJ = pedirJ;
-}
-
-if ( pedirD === final ) {
-    resultadoD = "¡BLACKJACK!";
-} else if ( pedirD > final ) {
-    resultadoD = pedirD;
-} else {
-    resultadoD = pedirD;
-}
-
-let cartasJ = `Estas son las cartas del jugador: ${jugador} + ${carta2} + ${carta3}`;
-let cartasD = `Estas son las cartas del dealer: ${dealer} + ${carta2d} + ${carta3d}`;
-let sep = "-------------------------------------";
-
-if (resultadoD === "¡BLACKJACK!" && resultadoJ === "¡BLACKJACK!") {
-
-    console.log("¡HUBO UN EMPATE! 😱");
-    console.log("Los dos jugadores obtuvieron el ¡BLACKJACK!");
-    console.log(cartasJ);
-    console.log(sep);
-    console.log(cartasD);
-
-} else if (resultadoJ === "¡BLACKJACK!" || resultadoD > final) {
-
-    console.log("¡VICTORIA! 🥳🏆");
-    console.log(`El jugador ha ganado con ${resultadoJ}`);
-    console.log(cartasJ);
-    console.log(sep);
-    console.log(`El dealer no tuvo tanta suerte, su resultado fue ${resultadoD}`);
-    console.log(cartasD);
-
-} else if (resultadoD === "¡BLACKJACK!" || resultadoJ > final) {
-
-    console.log("DERROTA 😔");
-    console.log(`El dealer ha ganado con ${resultadoD}`);
-    console.log(cartasD);
-    console.log(sep);
-    console.log(`El jugador quedó con ${resultadoJ}`);
-    console.log(cartasJ);
-
-} else if (resultadoJ > resultadoD) {
-
-    console.log("¡VICTORIA! 🥳🏆");
-    console.log(`El jugador ha ganado con ${resultadoJ}`);
-    console.log(cartasJ);
-    console.log(sep);
-    console.log(`El dealer quedó con ${resultadoD}`);
-    console.log(cartasD);
-
-} else if (resultadoD > resultadoJ) {
-
-    console.log("DERROTA 😔");
-    console.log(`El dealer ha ganado con ${resultadoD}`);
-    console.log(cartasD);
-    console.log(sep);
-    console.log(`El jugador quedó con ${resultadoJ}`);
-    console.log(cartasJ);
-
-} else {
-
-    console.log("¡HUBO UN EMPATE! 😱");
-    console.log(`Ambos jugadores quedaron con ${resultadoJ}`);
-    console.log(cartasJ);
-    console.log(sep);
-    console.log(cartasD);
-    
+    showCards("Player", cardsP);
+    document.getElementById("Dealer").innerHTML = cardsD[0] + ", ?";
+    //In the BlackJack rules, the second card of the dealer is hidden while the player are playing, when he/she stop, we can watch the dealer cards
 };
+
+document.getElementById("hitBtn").addEventListener("click", function() {
+    cardsP.push(card());
+    showCards("Player", cardsP);
+});
+
+document.getElementById("standBtn").addEventListener("click", function() {
+    showCards("Player", cardsP);
+    showCards("Dealer", cardsD);
+});
