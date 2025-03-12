@@ -1,94 +1,94 @@
-let jugador = Math.floor( Math.random() * 10 ) + 1;
+let player = Math.floor( Math.random() * 10 ) + 1;
 let dealer = Math.floor( Math.random() * 10 ) + 1;
 
-let carta2 = Math.floor( Math.random() * 10 ) + 1;
-let carta2d = Math.floor( Math.random() * 10 ) + 1;
+let card2 = Math.floor( Math.random() * 10 ) + 1;
+let card2d = Math.floor( Math.random() * 10 ) + 1;
 
-let carta3 = Math.floor( Math.random() * 10 ) + 1;
-let carta3d = Math.floor( Math.random() * 10 ) + 1;
+let card3 = Math.floor( Math.random() * 10 ) + 1;
+let card3d = Math.floor( Math.random() * 10 ) + 1;
 
-let parar = 17;
+let st0p = 17;
 let final = 21;
 
-let a = jugador + carta2;
-let b = dealer + carta2d;
+let a = player + card2;
+let b = dealer + card2d;
 
-let pedirJ = a >= parar ? a : a + carta3;
-let pedirD = b >= parar ? b : b + carta3d;
+let takeJ = a >= st0p ? a : a + card3;
+let takeD = b >= st0p ? b : b + card3d;
 
-let resultadoJ;
-let resultadoD;
+let resultJ;
+let resultD;
 
-if ( pedirJ === final ) {
-    resultadoJ = "¡BLACKJACK!";
-} else if ( pedirJ > final ) {
-    resultadoJ = pedirJ;
+if ( takeJ === final ) {
+    resultJ = "¡BLACKJACK!";
+} else if ( takeJ > final ) {
+    resultJ = takeJ;
 } else {
-    resultadoJ = pedirJ;
+    resultJ = takeJ;
 }
 
-if ( pedirD === final ) {
-    resultadoD = "¡BLACKJACK!";
-} else if ( pedirD > final ) {
-    resultadoD = pedirD;
+if ( takeD === final ) {
+    resultD = "¡BLACKJACK!";
+} else if ( takeD > final ) {
+    resultD = takeD;
 } else {
-    resultadoD = pedirD;
+    resultD = takeD;
 }
 
-let cartasJ = `Estas son las cartas del jugador: ${jugador} + ${carta2} + ${carta3}`;
-let cartasD = `Estas son las cartas del dealer: ${dealer} + ${carta2d} + ${carta3d}`;
+let cardsJ = `These are the player's cards: ${player} + ${card2} + ${card3}`;
+let cardsD = `These are the dealer's cards: ${dealer} + ${card2d} + ${card3d}`;
 let sep = "-------------------------------------";
 
-if (resultadoD === "¡BLACKJACK!" && resultadoJ === "¡BLACKJACK!") {
+if (resultD === "¡BLACKJACK!" && resultJ === "¡BLACKJACK!") {
 
-    console.log("¡HUBO UN EMPATE! 😱");
-    console.log("Los dos jugadores obtuvieron el ¡BLACKJACK!");
-    console.log(cartasJ);
+    console.log("¡THERE WAS A TIE! 😱");
+    console.log(`Both players got ${resultJ}`);
+    console.log(cardsJ);
     console.log(sep);
-    console.log(cartasD);
+    console.log(cardsD);
 
-} else if (resultadoJ === "¡BLACKJACK!" || resultadoD > final) {
+} else if (resultJ === "¡BLACKJACK!" || resultD > final) {
 
-    console.log("¡VICTORIA! 🥳🏆");
-    console.log(`El jugador ha ganado con ${resultadoJ}`);
-    console.log(cartasJ);
+    console.log("¡VICTORY! 🥳🏆");
+    console.log(`Player won with ${resultJ}`);
+    console.log(cardsJ);
     console.log(sep);
-    console.log(`El dealer no tuvo tanta suerte, su resultado fue ${resultadoD}`);
-    console.log(cartasD);
+    console.log(`Dealer lost with ${resultD}`);
+    console.log(cardsD);
 
-} else if (resultadoD === "¡BLACKJACK!" || resultadoJ > final) {
+} else if (resultD === "¡BLACKJACK!" || resultJ > final) {
 
-    console.log("DERROTA 😔");
-    console.log(`El dealer ha ganado con ${resultadoD}`);
-    console.log(cartasD);
+    console.log("YOU LOOSE 😔");
+    console.log(`Dealer won with ${resultD}`);
+    console.log(cardsD);
     console.log(sep);
-    console.log(`El jugador quedó con ${resultadoJ}`);
-    console.log(cartasJ);
+    console.log(`Player loose with ${resultJ}`);
+    console.log(cardsJ);
 
-} else if (resultadoJ > resultadoD) {
+} else if (resultJ > resultD) {
 
-    console.log("¡VICTORIA! 🥳🏆");
-    console.log(`El jugador ha ganado con ${resultadoJ}`);
-    console.log(cartasJ);
+    console.log("¡VICTORY! 🥳🏆");
+    console.log(`Player won with ${resultJ}`);
+    console.log(cardsJ);
     console.log(sep);
-    console.log(`El dealer quedó con ${resultadoD}`);
-    console.log(cartasD);
+    console.log(`Dealer lost with ${resultD}`);
+    console.log(cardsD);
 
-} else if (resultadoD > resultadoJ) {
+} else if (resultD > resultJ) {
 
-    console.log("DERROTA 😔");
-    console.log(`El dealer ha ganado con ${resultadoD}`);
-    console.log(cartasD);
+    console.log("YOU LOOSE 😔");
+    console.log(`Dealer won with ${resultD}`);
+    console.log(cardsD);
     console.log(sep);
-    console.log(`El jugador quedó con ${resultadoJ}`);
-    console.log(cartasJ);
+    console.log(`Player loose with ${resultJ}`);
+    console.log(cardsJ);
 
 } else {
 
-    console.log("¡HUBO UN EMPATE! 😱");
-    console.log(`Ambos jugadores quedaron con ${resultadoJ}`);
-    console.log(cartasJ);
+    console.log("¡THERE WAS A TIE! 😱");
+    console.log(`Both players got ${resultJ}`);
+    console.log(cardsJ);
     console.log(sep);
-    console.log(cartasD);
+    console.log(cardsD);
     
 };
