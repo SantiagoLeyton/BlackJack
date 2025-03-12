@@ -1,4 +1,4 @@
-In the JS we can use document.getElementById("example"), but how many things we can put to exted this?
+In the JS we can use document.getElementById("example"), but how many things we can put to extend this?
 
 Here I, Santiago Leyton, created a list to know a little more about this
 

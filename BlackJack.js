@@ -1,3 +1,5 @@
+let stop = 17;
+let final = 21;
 let cardsP = [ ];
 let cardsD = [ ]; //those arrays are empty because here we will add the player and delaer cards
 let cards = [
