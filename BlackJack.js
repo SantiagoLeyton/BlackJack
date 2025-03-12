@@ -19,8 +19,8 @@ function showCards(guest, kindCards) {
 }; //here we made a function to show the cards of the player or dealer and avoid write the same code a lot of times
 
 function start() {
-    cardsP.push(card(), card())
-    cardsD.push(card(), card())
+    cardsP.push(card(), card());
+    cardsD.push(card(), card());
     //here the dealer and the player will have two cards to start the game
 
     document.getElementById("hitBtn").classList.remove("hidden-f");
@@ -64,25 +64,26 @@ function stand() {
 function verify(a) {
     if(a >= 21) {
         if(a == 21) { // I hide hit and stand's button and show restart button
-            alert('YOU WIN!')
-            document.getElementById('restartBtn').classList.add("show-s")
-            document.getElementById('restartBtn').classList.remove("hidden-f")
+            alert('YOU WIN!');
+            document.getElementById('restartBtn').classList.add("show-s");
+            document.getElementById('restartBtn').classList.remove("hidden-f");
             document.getElementById("hitBtn").classList.add("hidden-f");
             document.getElementById("hitBtn").classList.remove("show-s");
             document.getElementById("standBtn").classList.add("hidden-f");
-            document.getElementById("standBtn").classList.remove("show-s"); 
+            document.getElementById("standBtn").classList.remove("show-s");
+            stand();
         } else { // Here i do the same than before but with other alert message
             alert('YOU LOOSE!')
-            document.getElementById('restartBtn').classList.add("show-s")
-            document.getElementById('restartBtn').classList.remove("hidden-f")
+            document.getElementById('restartBtn').classList.add("show-s");
+            document.getElementById('restartBtn').classList.remove("hidden-f");
             document.getElementById("hitBtn").classList.add("hidden-f");
             document.getElementById("hitBtn").classList.remove("show-s");
             document.getElementById("standBtn").classList.add("hidden-f");
             document.getElementById("standBtn").classList.remove("show-s"); 
-            stand()
-        }
-    }
-}
+            stand();
+        };
+    };
+};
 
 function hit() {
     let total = cardsP.reduce((acc, num) => acc + num);
@@ -105,7 +106,7 @@ function hit() {
                     verify(total);
                 } else {
                     alert('Select a valid option');
-                }
+                };
             } while (question !== 1 && question !== 2 && question !== null); // Repite solo si la opción es inválida
         } else {
             cardsP.push(card());
